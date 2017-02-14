@@ -10,14 +10,17 @@ import UIKit
 
 class AlarmDetailTableViewController: UITableViewController {
     
+    
     @IBOutlet weak var datePickerCell: UIDatePicker!
     
     @IBOutlet weak var textFieldCell: UITextField!
     
     @IBOutlet weak var enableButton: UIButton!
     
+    
     @IBAction func enableButtonTapped(_ sender: Any) {
     }
+    
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         //final functionality on detail view #1, 2, 3

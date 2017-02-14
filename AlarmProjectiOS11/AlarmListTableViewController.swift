@@ -55,7 +55,7 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
         // MARK: - Navigation
         
         // In a storyboard-based application, you will often want to do a little preparation before navigation
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             // Prep for segue #1
             if segue.identifier == "toAlarmDetailVC" {
                 // prep for segue #2

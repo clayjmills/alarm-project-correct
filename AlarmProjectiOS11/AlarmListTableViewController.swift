@@ -7,89 +7,65 @@
 //
 
 import UIKit
-
-class AlarmListTableViewController: UITableViewController {
-
+// Custom Protocol #5
+class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        //SwitchTableViewCell #3 required 1
+        return AlarmController.sharedInstance.alarms.count
     }
-
-    /*
+    
+    // SwitchTableViewCell #3 required 2
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "alarmCell", for: indexPath) as? SwitchTableViewCell ?? SwitchTableViewCell()
+        cell.alarm = AlarmController.sharedInstance.alarms[indexPath.row]
+        //Custom Protocol #5 continued
+        cell.delegate = self
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            // SwitchTableViewCell #4
+            let alarm = AlarmController.sharedInstance.alarms[indexPath.row]
+            AlarmController.sharedInstance.delete(alarm: alarm)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            //SwitchTableViewCell #4
+            
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    // Custom Protocol #7
+    func switchCellSwitchValueChanged(cell: SwitchTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {return}
+        let alarm = AlarmController.sharedInstance.alarms[indexPath.row]
+        AlarmController.sharedInstance.toggleEnabled(for: alarm)
+        if alarm.enabled {
+        }else {
+            
+        }
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        // MARK: - Navigation
+        
+        // In a storyboard-based application, you will often want to do a little preparation before navigation
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            // Prep for segue #1
+            if segue.identifier == "toAlarmDetailVC" {
+                // prep for segue #2
+                guard let alarmDetailVC = segue.destination as? AlarmDetailTableViewController,
+                    // prep for segue #3 and #4
+                    let indexPath = tableView.indexPathForSelectedRow else {return}
+                // prep for segue #5
+                alarmDetailVC.alarm = AlarmController.sharedInstance.alarms[indexPath.row]
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

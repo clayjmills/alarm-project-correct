@@ -20,11 +20,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="ySl-5V-r6o" customClass="SwitchTableViewCell" customModule="AlarmProjectiOS11" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmCell" rowHeight="72" id="ySl-5V-r6o" customClass="SwitchTableViewCell" customModule="AlarmProjectiOS11" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ySl-5V-r6o" id="LXL-uC-vdX">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="NhQ-US-kqu">
@@ -74,7 +74,7 @@
                                     <outlet property="alarmSwitch" destination="R1X-Oy-9vT" id="JNj-kJ-MKh"/>
                                     <outlet property="nameLabel" destination="RCK-TS-OC6" id="KPx-Nz-Pkd"/>
                                     <outlet property="timeLabel" destination="jch-Fu-oeR" id="W40-28-IlW"/>
-                                    <segue destination="J0W-qg-geG" kind="show" id="RBe-0Q-yqk"/>
+                                    <segue destination="J0W-qg-geG" kind="show" identifier="toAlarmDetailVC" id="RBe-0Q-yqk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="837.60000000000002" y="126.38680659670166"/>
         </scene>
-        <!--Title-->
+        <!--Alarm-->
         <scene sceneID="wNd-dI-d9r">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="J0W-qg-geG" customClass="AlarmDetailTableViewController" customModule="AlarmProjectiOS11" customModuleProvider="target" sceneMemberID="viewController">
@@ -186,7 +186,7 @@
                             <outlet property="delegate" destination="J0W-qg-geG" id="jJ1-ah-TYz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="jIt-3J-h5p">
+                    <navigationItem key="navigationItem" title="Alarm" id="jIt-3J-h5p">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="fa0-FU-eii">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="J0W-qg-geG" id="Oy7-oR-zs2"/>
@@ -201,7 +201,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6JV-jj-RoO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1520.8" y="126.38680659670166"/>
+            <point key="canvasLocation" x="1561" y="126"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QCf-8t-oxu">

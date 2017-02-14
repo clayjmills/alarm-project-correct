@@ -14,6 +14,9 @@
 		66DC8CAF1E524DA300C7CF94 /* AlarmListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DC8CAE1E524DA300C7CF94 /* AlarmListTableViewController.swift */; };
 		66DC8CB11E524E9900C7CF94 /* AlarmDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DC8CB01E524E9900C7CF94 /* AlarmDetailTableViewController.swift */; };
 		66DC8CB31E5250C300C7CF94 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DC8CB21E5250C300C7CF94 /* SwitchTableViewCell.swift */; };
+		66DC8CB81E52631200C7CF94 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DC8CB61E52631200C7CF94 /* Alarm.swift */; };
+		66DC8CB91E52631200C7CF94 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DC8CB71E52631200C7CF94 /* DateHelper.swift */; };
+		66DC8CBC1E52644900C7CF94 /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DC8CBB1E52644900C7CF94 /* AlarmController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		66DC8CAE1E524DA300C7CF94 /* AlarmListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmListTableViewController.swift; sourceTree = "<group>"; };
 		66DC8CB01E524E9900C7CF94 /* AlarmDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDetailTableViewController.swift; sourceTree = "<group>"; };
 		66DC8CB21E5250C300C7CF94 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		66DC8CB61E52631200C7CF94 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alarm.swift; path = ../../../../../Downloads/Archive/Alarm.swift; sourceTree = "<group>"; };
+		66DC8CB71E52631200C7CF94 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateHelper.swift; path = ../../../../../Downloads/Archive/DateHelper.swift; sourceTree = "<group>"; };
+		66DC8CBB1E52644900C7CF94 /* AlarmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,8 @@
 				66DC8CA01E524D0600C7CF94 /* Main.storyboard */,
 				66DC8CB51E52545000C7CF94 /* Views */,
 				66DC8CB41E52543800C7CF94 /* View Controllers */,
+				66DC8CBA1E52633B00C7CF94 /* Models */,
+				66DC8CBD1E52646600C7CF94 /* Model Controller */,
 				66DC8CA31E524D0600C7CF94 /* Assets.xcassets */,
 				66DC8CA51E524D0600C7CF94 /* LaunchScreen.storyboard */,
 				66DC8CA81E524D0600C7CF94 /* Info.plist */,
@@ -84,6 +92,23 @@
 				66DC8CB21E5250C300C7CF94 /* SwitchTableViewCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		66DC8CBA1E52633B00C7CF94 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				66DC8CB61E52631200C7CF94 /* Alarm.swift */,
+				66DC8CB71E52631200C7CF94 /* DateHelper.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		66DC8CBD1E52646600C7CF94 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				66DC8CBB1E52644900C7CF94 /* AlarmController.swift */,
+			);
+			name = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,8 +185,11 @@
 			files = (
 				66DC8CB11E524E9900C7CF94 /* AlarmDetailTableViewController.swift in Sources */,
 				66DC8CB31E5250C300C7CF94 /* SwitchTableViewCell.swift in Sources */,
+				66DC8CB81E52631200C7CF94 /* Alarm.swift in Sources */,
+				66DC8CB91E52631200C7CF94 /* DateHelper.swift in Sources */,
 				66DC8C9D1E524D0600C7CF94 /* AppDelegate.swift in Sources */,
 				66DC8CAF1E524DA300C7CF94 /* AlarmListTableViewController.swift in Sources */,
+				66DC8CBC1E52644900C7CF94 /* AlarmController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

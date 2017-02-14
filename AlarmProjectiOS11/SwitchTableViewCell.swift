@@ -7,6 +7,11 @@
 //
 
 import UIKit
+// Custom Protocol #1
+protocol SwitchTableViewCellDelegate: class {
+    // Custom Protocol #2
+    func switchCellSwitchValueChanged(cell: SwitchTableViewCell)
+}
 
 class SwitchTableViewCell: UITableViewCell {
     
@@ -16,19 +21,24 @@ class SwitchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var alarmSwitch: UISwitch!
     
-    @IBAction func switchValueChanged(_ sender: Any) {
+    // Custom Protocol #3
+    weak var delegate: SwitchTableViewCellDelegate?
+    
+    // SwitchTableViewCell #1
+    var alarm: Alarm? {
+        // SwitchTableViewCell #2
+        didSet {
+            guard let alarm = alarm else { return }
+            timeLabel.text = alarm.fireTimeAsString
+            nameLabel.text = alarm.name
+            alarmSwitch.isOn = alarm.enabled
+        }
     }
     
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBAction func switchValueChanged(_ sender: Any) {
+        // Custom Protocol #4
+        delegate?.switchCellSwitchValueChanged(cell: self)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

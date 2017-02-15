@@ -7,15 +7,20 @@
 //
 
 import UIKit
+// Register the App for UserNotifications #1
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+// Register the App for UserNotifications #2
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (_,error) in
+            guard let error = error else {return}
+        }
         return true
     }
 
